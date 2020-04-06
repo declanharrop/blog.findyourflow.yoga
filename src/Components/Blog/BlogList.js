@@ -38,25 +38,19 @@ function BlogList() {
   return (
     <div>
       <Helmet>
-        <title>Lunula Blog - Official blog, Lunula Nails and Beauty</title>
+        <title>Find Your Flow - Blog</title>
         <meta
           name="description"
-          content="We often have a lot to say about what's going on in the salon. It is often a great way for you to discover our new treatments and find out the magic behind them."
+          content="Find Your Flow is all about offering yoga for anyone and everyone, no matter what your shape, size, gender, background or flexibility"
         />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Lunula Nails and Beauty | Blog" />
-        <meta
-          property="og:url"
-          content="https://blog.lunulanailsandbeauty.com"
-        />
-        <meta
-          property="og:site_name"
-          content="Lunula Nails and Beauty | Blog"
-        />
+        <meta property="og:title" content="Find Your Flow - Blog" />
+        <meta property="og:url" content="https://blog.findyourflow.yoga" />
+        <meta property="og:site_name" content="Find Your Flow - Blog" />
         <meta
           property="og:description"
-          content="We often have a lot to say about what's going on in the salon. It is often a great way for you to discover our new treatments and find out the magic behind them."
+          content="Find Your Flow is all about offering yoga for anyone and everyone, no matter what your shape, size, gender, background or flexibility"
         />
       </Helmet>
       <HeadingSection></HeadingSection>

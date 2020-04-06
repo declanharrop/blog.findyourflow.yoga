@@ -84,24 +84,24 @@ export default class Post extends Component {
             return (
               <div className="mw7 center tc pt2">
                 <Helmet>
-                  <title>Lunula Blog | {blog.title}</title>
+                  <title>Find Your Flow - Blog | {blog.title}</title>
                   <meta name="description" content={blog.leading} />
                   <meta property="og:locale" content="en_GB" />
                   <meta property="og:type" content="website" />
                   <meta
                     property="og:title"
-                    content={`Lunula Blog | ${blog.title}`}
+                    content={`Find Your Flow - Blog | ${blog.title}`}
                   />
                   <meta
                     property="og:url"
-                    content={`https://blog.lunulanailsandbeauty.com/post/${blog.id}`}
+                    content={`https://blog.findyourflow.yoga/post/${blog.id}`}
                   />
                   <meta
                     property="og:site_name"
-                    content="Lunula Nails and Beauty | Blog"
+                    content="Find Your Flow - Blog"
                   />
                   <meta property="og:description" content={blog.leading} />
-                  <meta property="og:image" content={blog.featImage} />
+                  <meta property="og:image" content={blog.img.url} />
                   <meta
                     property="article:published_time"
                     content={blog.createdAt}
