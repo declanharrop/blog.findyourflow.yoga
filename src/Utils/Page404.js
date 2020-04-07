@@ -23,9 +23,4 @@ const Wrapper = styled.div`
   height: 100vh;
 `;
 
-const Image = styled.img`
-  height: 30vh;
-  margin: 0 0 10vh 0;
-`;
-
 export default Page404;

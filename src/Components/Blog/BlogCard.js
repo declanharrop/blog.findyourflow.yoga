@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Markdown from 'markdown-to-jsx';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
