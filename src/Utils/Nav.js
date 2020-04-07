@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.nav`
   text-align: left;
@@ -16,7 +17,9 @@ const Wrapper = styled.nav`
 
 const Nav = () => (
   <Wrapper>
-    <h1>Find Your Flow - Blog</h1>
+    <Link to="/" title="Home">
+      <h1>Find Your Flow - Blog</h1>
+    </Link>
   </Wrapper>
 );
 
