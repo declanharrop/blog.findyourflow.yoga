@@ -12,6 +12,7 @@ const BLOGS_QUERY = gql`
     blogs(orderBy: createdAt_DESC) {
       id
       title
+      createdAt
       img {
         url
       }
@@ -32,6 +33,18 @@ const HeadingSection = styled.div`
 const Posts = styled.div`
   max-width: 1400px;
   margin: 0 auto;
+`;
+
+const Lower = styled.div`
+  margin: 60px auto;
+  text-align: left;
+  max-width: 1400px;
+  h3 {
+    margin: 20px 20px 0 20px;
+    border-bottom: 1px solid var(--grey);
+    font-size: 2.6rem;
+    padding: 0 0 15px 0;
+  }
 `;
 
 function BlogList() {
@@ -63,15 +76,23 @@ function BlogList() {
             <>
               {blogs.map((blog, i) => (
                 <div key={blog.id}>
-                  {i === 0 ? (
-                    <FeaturedBlogCard data={blog} />
-                  ) : (
-                    <Posts>
-                      <BlogCard blog={blog} />
-                    </Posts>
-                  )}
+                  {i === 0 ? <FeaturedBlogCard data={blog} /> : <></>}
                 </div>
               ))}
+              <Lower>
+                <h3>All Posts</h3>
+                {blogs.map((blog, i) => (
+                  <div key={blog.id}>
+                    {i === 0 ? (
+                      <></>
+                    ) : (
+                      <Posts>
+                        <BlogCard blog={blog} />
+                      </Posts>
+                    )}
+                  </div>
+                ))}
+              </Lower>
             </>
           );
           // const { blogs } = data;

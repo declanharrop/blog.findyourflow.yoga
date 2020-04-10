@@ -33,6 +33,18 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr;
       margin: 40px 0 0 0;
     }
+    .infoSection {
+      background: blue;
+      p {
+        float: left;
+        margin: 0 0 20px 0;
+        font-size: 1.2rem;
+      }
+      h3 {
+        float: right;
+        margin: 0 0 20px 0;
+      }
+    }
   }
   h2 {
     margin: 30px 0 0 0;
@@ -60,21 +72,29 @@ const Wrapper = styled.div`
   }
 `;
 
-const FeaturedBlogCard = ({ data }) => (
-  <>
-    <Wrapper>
-      <NavLink to={`/post/${data.id}`} style={{ textDecoration: 'none' }}>
-        <div className="inner">
-          <img src={data.img.url} alt="" />
-          <div className="content">
-            <h2>{data.title}</h2>
-            <p>{data.leading}</p>
-            <h3>{data.author}</h3>
+const FeaturedBlogCard = ({ data }) => {
+  const NewDate = new Date(data.createdAt);
+  const Day = NewDate.toDateString();
+
+  return (
+    <>
+      <Wrapper>
+        <NavLink to={`/post/${data.id}`} style={{ textDecoration: 'none' }}>
+          <div className="inner">
+            <img src={data.img.url} alt="" />
+            <div className="content">
+              <h2>{data.title}</h2>
+              <p>{data.leading}</p>
+              <div className="infoSection">
+                <p>{Day}</p>
+                <h3>{data.author}</h3>
+              </div>
+            </div>
           </div>
-        </div>
-      </NavLink>
-    </Wrapper>
-  </>
-);
+        </NavLink>
+      </Wrapper>
+    </>
+  );
+};
 
 export default FeaturedBlogCard;

@@ -48,20 +48,30 @@ const Wrapper = styled.div`
     margin: 10px 0;
     line-height: 1.6;
   }
+  .right {
+    text-align: right;
+    font-size: 1.2rem;
+    padding: 10px 0 0 0;
+  }
 `;
 
-const BlogCard = ({ blog }) => (
-  <Wrapper>
-    <NavLink to={`/post/${blog.id}`} style={{ textDecoration: 'none' }}>
-      <div className="inner">
-        <div className="content">
-          <h2>{blog.title}</h2>
-          <p>{blog.leading}</p>
+const BlogCard = ({ blog }) => {
+  const NewDate = new Date(blog.createdAt);
+  const Day = NewDate.toDateString();
+  return (
+    <Wrapper>
+      <NavLink to={`/post/${blog.id}`} style={{ textDecoration: 'none' }}>
+        <div className="inner">
+          <div className="content">
+            <h2>{blog.title}</h2>
+            <p>{blog.leading}</p>
+            <p className="right">{Day}</p>
+          </div>
+          <img src={blog.img.url} alt="" />
         </div>
-        <img src={blog.img.url} alt="" />
-      </div>
-    </NavLink>
-  </Wrapper>
-);
+      </NavLink>
+    </Wrapper>
+  );
+};
 
 export default BlogCard;

@@ -43,11 +43,20 @@ const Wrap = styled.div`
   }
   .content {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0px auto 40px 0;
     padding: 20px;
   }
   .author {
-    margin: 30px 0;
+    margin: 4px 0 0 0;
+    p {
+      font-size: 1.2rem;
+    }
+  }
+  .date {
+    margin: 60px 0 0 0;
+    p {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -81,55 +90,62 @@ export default class Post extends Component {
           {({ data, loading }) => {
             if (loading) return 'loading';
             const { blog } = data;
+            const NewDate = new Date(blog.createdAt);
+            const Day = NewDate.toDateString();
             return (
-              <div className="mw7 center tc pt2">
-                <Helmet>
-                  <title>Find Your Flow - Blog | {blog.title}</title>
-                  <meta name="description" content={blog.leading} />
-                  <meta property="og:locale" content="en_GB" />
-                  <meta property="og:type" content="website" />
-                  <meta
-                    property="og:title"
-                    content={`Find Your Flow - Blog | ${blog.title}`}
-                  />
-                  <meta
-                    property="og:url"
-                    content={`https://blog.findyourflow.yoga/post/${blog.id}`}
-                  />
-                  <meta
-                    property="og:site_name"
-                    content="Find Your Flow - Blog"
-                  />
-                  <meta property="og:description" content={blog.leading} />
-                  <meta property="og:image" content={blog.img.url} />
-                  <meta
-                    property="article:published_time"
-                    content={blog.createdAt}
-                  />
-                </Helmet>
-                <NavLink to="/">
-                  <div className="btnplacertop">
-                    <button type="button">BACK HOME</button>
-                  </div>
-                </NavLink>
-                <img src={blog.img.url} alt={blog.title} />
-                <div className="content">
-                  <h1>{blog.title}</h1>
+              <>
+                <div className="mw7 center tc pt2">
+                  <Helmet>
+                    <title>Find Your Flow - Blog | {blog.title}</title>
+                    <meta name="description" content={blog.leading} />
+                    <meta property="og:locale" content="en_GB" />
+                    <meta property="og:type" content="website" />
+                    <meta
+                      property="og:title"
+                      content={`Find Your Flow - Blog | ${blog.title}`}
+                    />
+                    <meta
+                      property="og:url"
+                      content={`https://blog.findyourflow.yoga/post/${blog.id}`}
+                    />
+                    <meta
+                      property="og:site_name"
+                      content="Find Your Flow - Blog"
+                    />
+                    <meta property="og:description" content={blog.leading} />
+                    <meta property="og:image" content={blog.img.url} />
+                    <meta
+                      property="article:published_time"
+                      content={blog.createdAt}
+                    />
+                  </Helmet>
+                  <NavLink to="/">
+                    <div className="btnplacertop">
+                      <button type="button">BACK HOME</button>
+                    </div>
+                  </NavLink>
+                  <img src={blog.img.url} alt={blog.title} />
+                  <div className="content">
+                    <h1>{blog.title}</h1>
 
-                  <div className="ma4 separator " />
-                  <div className="mt4 ph3">
-                    <Markdown>{blog.content}</Markdown>
+                    <div className="ma4 separator " />
+                    <div className="mt4 ph3">
+                      <Markdown>{blog.content}</Markdown>
+                    </div>
+                    <div className="date">
+                      <p>{Day}</p>
+                    </div>
+                    <div className="author">
+                      <p>By: {blog.author}</p>
+                    </div>
                   </div>
-                  <div className="author">
-                    <p>By: {blog.author}</p>
-                  </div>
+                  <NavLink to="/">
+                    <div className="btnplacer">
+                      <button type="button">BACK HOME</button>
+                    </div>
+                  </NavLink>
                 </div>
-                <NavLink to="/">
-                  <div className="btnplacer">
-                    <button type="button">BACK HOME</button>
-                  </div>
-                </NavLink>
-              </div>
+              </>
             );
           }}
         </Query>
